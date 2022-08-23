@@ -1,5 +1,5 @@
-# python-template
-Template app to create python projects
+# TODO application
+TODO app 
 
 Install the virtualenv package  
 pip install virtualenv
