@@ -9,10 +9,11 @@ class User(Base):
 
     id = Column(String, primary_key=True, index=True, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
+    name = Column(String, index=True)
     username = Column(String, unique=True, index=True, nullable=False)
     hashed_password = Column(String, nullable=False)
 
-    items = relationship("Task", back_populates="user")
+    tasks = relationship("Task", back_populates="user")
 
 
 class Task(Base):
