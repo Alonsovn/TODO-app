@@ -17,3 +17,19 @@ dev\Scripts\activate
 Mac OS / Linux  
 source mypython/bin/activate  
 
+Alembic 
+To init / create alembic folder run this:
+alembic init <folder_name>  
+`` alembic init alembic
+``  
+Run latest version  
+``alembic upgrade head``  
+
+Upgrade specific version  
+``alembic upgrade 66b1 ``   
+
+Downgrade -1 version  
+``alembic downgrade -1 ``  
+
+
+
