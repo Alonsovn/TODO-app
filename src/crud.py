@@ -10,6 +10,12 @@ def get_user(db: Session, user_id: str):
 
 
 def get_user_by_username(db: Session, username: str):
-    return db.query(models.User). \
-        filter(models.User.username == username). \
-        first()
+    try:
+        db_user = db.query(models.User). \
+            filter(models.User.username == username). \
+            first()
+
+        return db_user
+
+    except Exception as e:
+        print(f"Failed getting user by username. Error: {e}")

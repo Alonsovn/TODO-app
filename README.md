@@ -18,10 +18,14 @@ Mac OS / Linux
 source mypython/bin/activate  
 
 Alembic 
-To init / create alembic folder run this:
+To init / create alembic folder run this:  
 alembic init <folder_name>  
 `` alembic init alembic
 ``  
+
+Create revision  
+```alembic revision --autogenerate -m "First revision"``` 
+
 Run latest version  
 ``alembic upgrade head``  
 

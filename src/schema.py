@@ -22,12 +22,13 @@ class TaskCreate(TaskBase):
 class UserBase(BaseModel):
     username: str
     email: str
+    name: str
     hashed_password: str
 
 
 class User(UserBase):
     id: str
-    tasks: List[Task] = []
+    # tasks: List[Task] = []
 
     class Config:
         orm_mode = True
