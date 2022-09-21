@@ -25,4 +25,4 @@ class Task(Base):
     text = Column(String)
     # user_id = Column(String, ForeignKey("user.id"))
 
-    # user = relationship("User", back_populates="task")
+    # user = relationship("User", back_populates="tasks")
