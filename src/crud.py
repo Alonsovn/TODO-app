@@ -37,8 +37,21 @@ def get_task_by_user_id(db: Session, id: str,  skip: int = 0, limit: int = 100):
     return db.query(models.Task).filter(models.Task.user_id = id).offset(skip).limit(limit).all()
 
 
+def get_task_by_id(db: Session, task_id: str):
+    return db.query(models.Task). \
+        filter(models.Task.id == task_id). \
+        first()
 
-
-
-
-
+def add_task(db: Session, task: schemas.TaskCreate, id : str):
+    if not get_user(db, str(id)):
+        return None
+    
+    task_id = uuid.uuid4()
+    while get_task_by_id(db, str(task_id)):
+        task_id = uuid.uuid4()
+        
+    db_task = models.Task(str(task_id), task.text, id)
+    db.add(db_task)
+    db.commit()
+    
+    db.refresh(db_task)
