@@ -55,3 +55,13 @@ def add_task(db: Session, task: schemas.TaskCreate, id : str):
     db.commit()
     
     db.refresh(db_task)
+    
+
+    
+def delete_task(db: Session, id: str):
+
+    db.query(models.User). \
+        filter(models.User.id == id). \
+        delete()
+    db.commit()
+
