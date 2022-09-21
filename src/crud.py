@@ -60,8 +60,8 @@ def add_task(db: Session, task: schemas.TaskCreate, id : str):
     
 def delete_task(db: Session, id: str):
 
-    db.query(models.User). \
-        filter(models.User.id == id). \
+    db.query(models.Task). \
+        filter(models.Task.id == id). \
         delete()
     db.commit()
 
